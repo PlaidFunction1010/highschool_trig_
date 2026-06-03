@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>數位數學教案：三角函數篇</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .apple-blur {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .brand-blue { color: #0071e3; }
+    .bg-brand-blue { background-color: #0071e3; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="sticky top-0 z-50 apple-blur border-b border-gray-200/80 transition-all">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('view-lobby')">
+        <span class="text-xl font-bold tracking-tight text-gray-900 flex items-center gap-2">
+          <span class="brand-blue font-black">Δ</span> Trigon Studio
+        </span>
+      </div>
+      <div class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
+        iPad 觸控優化版
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-10">
+    
+    <section id="view-lobby" class="view-section transition-all duration-300">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
+          三角函數實驗室
+        </h1>
+        <p class="text-base text-gray-500">
+          透過精準題型的動態切換與即時幾何演算，建立「看見關鍵字，反射數學工具」的直覺解題思維。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-cosine-law')">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
+            <span class="text-xl font-bold">a²</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">餘弦定理實驗室</h3>
+          <p class="text-sm text-gray-500 mb-4">精準拆解 SAS 與 SSS 的邊角依存關係，快速鎖定第三邊與夾角餘弦值。</p>
+          <div class="flex items-center text-sm font-medium text-[#0071e3]">
+            <span>進入訓練</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-sine-law')">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
+            <span class="text-xl font-bold">sin</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理實驗室</h3>
+          <p class="text-sm text-gray-500 mb-4">掌握 AAS 對邊角比例的平衡，動態聯結外接圓半徑 $R$ 的幾何橋樑。</p>
+          <div class="flex items-center text-sm font-medium text-[#0071e3]">
+            <span>進入訓練</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-triangle-area')">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
+            <span class="text-xl font-bold">Δ</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">三角形面積實驗室</h3>
+          <p class="text-sm text-gray-500 mb-4">橫跨 SAS、海龍、內切圓半徑 $r$ 與外接圓半徑 $R$ 的四大核心公式。</p>
+          <div class="flex items-center text-sm font-medium text-[#0071e3]">
+            <span>進入訓練</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="view-cosine-law" class="view-section hidden max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題二</span>
+          <h2 class="text-2xl font-bold text-gray-900">餘弦定理反射訓練</h2>
+        </div>
+        <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">型態一：SAS 求第三邊</span>
+          <p id="cos-t1-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('cos-t1')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.cosineT1()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="cos-t1-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">型態二：SSS 求單一夾角</span>
+          <p id="cos-t2-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('cos-t2')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.cosineT2()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="cos-t2-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-sine-law" class="view-section hidden max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題三</span>
+          <h2 class="text-2xl font-bold text-gray-900">正弦定理反射訓練</h2>
+        </div>
+        <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">型態一：AAS 求另一對邊</span>
+          <p id="sine-t1-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('sine-t1')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.sineT1()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="sine-t1-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">型態二：結合外接圓半徑 $R$ 的問題</span>
+          <p id="sine-t2-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('sine-t2')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.sineT2()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="sine-t2-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-triangle-area" class="view-section hidden max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題四</span>
+          <h2 class="text-2xl font-bold text-gray-900">三角形面積四大公式</h2>
+        </div>
+        <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">公式一：SAS 求面積</span>
+          <p id="area-t1-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('area-t1')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.areaT1()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="area-t1-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">公式二：海龍公式（三邊整數條件）</span>
+          <p id="area-t2-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('area-t2')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.areaT2()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="area-t2-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">公式三：給定內切圓半徑 $r$ 與周長</span>
+          <p id="area-t3-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('area-t3')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.areaT3()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="area-t3-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 mb-3">公式四：給定外接圓半徑 $R$ 與三邊長</span>
+          <p id="area-t4-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('area-t4')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.areaT4()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="area-t4-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 py-6 text-center text-xs text-gray-400">
+    數位互動網頁
+  </footer>
+
+  <script>
+    // SPA 虛擬路由切換核心
+    function switchView(viewId) {
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      const activeSection = document.getElementById(viewId);
+      if (activeSection) {
+        activeSection.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // 顯隱控制對答案
+    function toggleAns(id) {
+      const el = document.getElementById(`${id}-ans`);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    // 安全解析渲染器 (預防中文字元與 LaTeX 衝突)
+    function safeRenderMath(id) {
+      const container = document.getElementById(id);
+      if (container && typeof renderMathInElement === 'function') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // 幾何題目動態生成引擎 (確保數據方便計算、整除)
+    const geoGen = {
+      // 1. 餘弦定理 SAS 求第三邊
+      cosineT1: function() {
+        const pools = [
+          {b: 3, c: 5, A: 120, ansStr: "7", sol: "a^2 = 3^2 + 5^2 - 2(3)(5)\\cos(120^\\circ) = 9 + 25 - 30(-\\frac{1}{2}) = 49 \\implies a = 7"},
+          {b: 5, c: 8, A: 60,  ansStr: "7", sol: "a^2 = 5^2 + 8^2 - 2(5)(8)\\cos(60^\\circ) = 25 + 64 - 80(\\frac{1}{2}) = 49 \\implies a = 7"},
+          {b: 3, c: 8, A: 60,  ansStr: "7", sol: "a^2 = 3^2 + 8^2 - 2(3)(8)\\cos(60^\\circ) = 9 + 64 - 48(\\frac{1}{2}) = 49 \\implies a = 7"},
+          {b: 1, c: 2, A: 120, ansStr: "\\sqrt{7}", sol: "a^2 = 1^2 + 2^2 - 2(1)(2)\\cos(120^\\circ) = 1 + 4 - 4(-\\frac{1}{2}) = 7 \\implies a = \\sqrt{7}"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('cos-t1-text').innerHTML = `在 $\\Delta ABC$ 中，已知邊長 $b = ${p.b}$，$c = ${p.c}$，且夾角 $\\angle A = ${p.A}^\\circ$，求第三邊 $a$ 的長度。`;
+        document.getElementById('cos-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$a = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>根據餘弦定理公式：$${p.sol}$$</div>`;
+        document.getElementById('cos-t1-ans').classList.add('hidden');
+        safeRenderMath('cos-t1-text'); safeRenderMath('cos-t1-ans');
+      },
+
+      // 2. 餘弦定理 SSS 求角度
+      cosineT2: function() {
+        const pools = [
+          {a: 3, b: 5, c: 7, target: "C", ansStr: "-1/2 \\implies \\angle C = 120^\\circ", sol: "\\cos C = \\frac{3^2 + 5^2 - 7^2}{2 \\times 3 \\times 5} = \\frac{9 + 25 - 49}{30} = -\\frac{15}{30} = -\\frac{1}{2}"},
+          {a: 5, b: 7, c: 8, target: "B", ansStr: "1/2 \\implies \\angle B = 60^\\circ", sol: "\\cos B = \\frac{5^2 + 8^2 - 7^2}{2 \\times 5 \\times 8} = \\frac{25 + 64 - 49}{80} = \\frac{40}{80} = \\frac{1}{2}"},
+          {a: 3, b: 7, c: 8, target: "A", ansStr: "11/14", sol: "\\cos A = \\frac{7^2 + 8^2 - 3^2}{2 \\times 7 \\times 8} = \\frac{49 + 64 - 9}{112} = \\frac{104}{112} = \\frac{11}{14}"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('cos-t2-text').innerHTML = `已知 $\\Delta ABC$ 的三邊長分別為 $a = ${p.a}$，$b = ${p.b}$，$c = ${p.c}$，試求 $\\cos ${p.target}$ 的值與對應角度。`;
+        document.getElementById('cos-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$\\cos ${p.target} = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>利用餘弦定理移項變形：$${p.sol}$$</div>`;
+        document.getElementById('cos-t2-ans').classList.add('hidden');
+        safeRenderMath('cos-t2-text'); safeRenderMath('cos-t2-ans');
+      },
+
+      // 3. 正弦定理 AAS 求對邊
+      sineT1: function() {
+        const pools = [
+          {A: 45, B: 60, a: 4, ansStr: "2\\sqrt{6}", sol: "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies \\frac{4}{\\sin 45^\\circ} = \\frac{b}{\\sin 60^\\circ} \\implies b = 4 \\times \\frac{\\sqrt{3}/2}{\\sqrt{2}/2} = 2\\sqrt{6}"},
+          {A: 30, B: 45, a: 5, ansStr: "5\\sqrt{2}", sol: "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies \\frac{5}{\\sin 30^\\circ} = \\frac{b}{\\sin 45^\\circ} \\implies b = 5 \\times \\frac{\\sqrt{2}/2}{1/2} = 5\\sqrt{2}"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('sine-t1-text').innerHTML = `在 $\\Delta ABC$ 中，已知 $\\angle A = ${p.A}^\\circ$，$\\angle B = ${p.B}^\\circ$，且 $\\angle A$ 的對邊 $a = ${p.a}$，求 $\\angle B$ 的對邊 $b$ 的長度。`;
+        document.getElementById('sine-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$b = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>依據正弦定理比例：$${p.sol}$$</div>`;
+        document.getElementById('sine-t1-ans').classList.add('hidden');
+        safeRenderMath('sine-t1-text'); safeRenderMath('sine-t1-ans');
+      },
+
+      // 4. 正弦定理 結合外接圓半徑 R
+      sineT2: function() {
+        const pools = [
+          {A: 60, a: 6, ansStr: "2\\sqrt{3}", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{6}{\\sin 60^\\circ} = 2R \\implies \\frac{6}{\\sqrt{3}/2} = 4\\sqrt{3} = 2R \\implies R = 2\\sqrt{3}"},
+          {A: 45, a: 10, ansStr: "5\\sqrt{2}", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{10}{\\sin 45^\\circ} = 2R \\implies \\frac{10}{\\sqrt{2}/2} = 10\\sqrt{2} = 2R \\implies R = 5\\sqrt{2}"},
+          {A: 30, a: 7, ansStr: "7", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{7}{\\sin 30^\\circ} = 2R \\implies \\frac{7}{1/2} = 14 = 2R \\implies R = 7"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('sine-t2-text').innerHTML = `在 $\\Delta ABC$ 中，已知邊長 $a = ${p.a}$，且其相對內角 $\\angle A = ${p.A}^\\circ$，試求此三角形的外接圓半徑 $R$。`;
+        document.getElementById('sine-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$R = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>由正弦定理性質：$${p.sol}$$</div>`;
+        document.getElementById('sine-t2-ans').classList.add('hidden');
+        safeRenderMath('sine-t2-text'); safeRenderMath('sine-t2-ans');
+      },
+
+      // 5. 面積公式一：SAS
+      areaT1: function() {
+        const pools = [
+          {b: 4, c: 5, A: 30, ansStr: "5", sol: "\\Delta = \\frac{1}{2}bc\\sin A = \\frac{1}{2}(4)(5)\\sin(30^\\circ) = 10 \\times \\frac{1}{2} = 5"},
+          {b: 6, c: 8, A: 120, ansStr: "12\\sqrt{3}", sol: "\\Delta = \\frac{1}{2}bc\\sin A = \\frac{1}{2}(6)(8)\\sin(120^\\circ) = 24 \\times \\frac{\\sqrt{3}}{2} = 12\\sqrt{3}"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('area-t1-text').innerHTML = `已知 $\\Delta ABC$ 中，邊長 $b = ${p.b}$，$c = ${p.c}$，且兩者夾角 $\\angle A = ${p.A}^\\circ$，求此三角形的面積。`;
+        document.getElementById('area-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>代入正弦面積公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t1-ans').classList.add('hidden');
+        safeRenderMath('area-t1-text'); safeRenderMath('area-t1-ans');
+      },
+
+      // 6. 面積公式二：海龍公式
+      areaT2: function() {
+        const pools = [
+          {a: 5, b: 6, c: 7, ansStr: "6\\sqrt{6}", sol: "s = \\frac{5+6+7}{2} = 9 \\\\ \\Delta = \\sqrt{9(9-5)(9-6)(9-7)} = \\sqrt{9 \\times 4 \\times 3 \\times 2} = 6\\sqrt{6}"},
+          {a: 5, b: 7, c: 8, ansStr: "10\\sqrt{3}", sol: "s = \\frac{5+7+8}{2} = 10 \\\\ \\Delta = \\sqrt{10(10-5)(10-7)(10-8)} = \\sqrt{10 \\times 5 \\times 3 \\times 2} = 10\\sqrt{3}"},
+          {a: 4, b: 13, c: 15, ansStr: "24", sol: "s = \\frac{4+13+15}{2} = 16 \\\\ \\Delta = \\sqrt{16(16-4)(16-13)(16-15)} = \\sqrt{16 \\times 12 \\times 3 \\times 1} = 24"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('area-t2-text').innerHTML = `已知 $\\Delta ABC$ 的三邊整數長分別為 $a = ${p.a}$，$b = ${p.b}$，$c = ${p.c}$，求其三角形面積。`;
+        document.getElementById('area-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>計算半周長 $s$ 後代入海龍公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t2-ans').classList.add('hidden');
+        safeRenderMath('area-t2-text'); safeRenderMath('area-t2-ans');
+      },
+
+      // 7. 面積公式三：內切圓半徑 r 與周長
+      areaT3: function() {
+        const pools = [
+          {perim: 24, r: 2, ansStr: "24", sol: "s = \\frac{\\text{周長}}{2} = \\frac{24}{2} = 12 \\\\ \\Delta = r \\times s = 2 \\times 12 = 24"},
+          {perim: 30, r: 3, ansStr: "45", sol: "s = \\frac{\\text{周長}}{2} = \\frac{30}{2} = 15 \\\\ \\Delta = r \\times s = 3 \\times 15 = 45"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('area-t3-text').innerHTML = `若一個三角形的總周長為 $${p.perim}$，且其內切圓半徑 $r = ${p.r}$，求此三角形的面積。`;
+        document.getElementById('area-t3-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>由內切圓半徑與面積公式 $\\Delta = rs$：$${p.sol}$$</div>`;
+        document.getElementById('area-t3-ans').classList.add('hidden');
+        safeRenderMath('area-t3-text'); safeRenderMath('area-t3-ans');
+      },
+
+      // 8. 面積公式四：外接圓半徑 R 與三邊長
+      areaT4: function() {
+        const pools = [
+          {a: 3, b: 5, c: 7, R: "\\frac{7}{\\sqrt{3}}", ansStr: "\\frac{15\\sqrt{3}}{4}", sol: "\\Delta = \\frac{abc}{4R} = \\frac{3 \\times 5 \\times 7}{4 \\times \\frac{7}{\\sqrt{3}}} = \\frac{105}{\\frac{28}{\\sqrt{3}}} = \\frac{15\\sqrt{3}}{4}"},
+          {a: 5, b: 5, c: 6, R: "\\frac{25}{8}", ansStr: "12", sol: "\\Delta = \\frac{abc}{4R} = \\frac{5 \\times 5 \\times 6}{4 \\times \\frac{25}{8}} = \\frac{150}{\\frac{100}{8}} = 12"}
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('area-t4-text').innerHTML = `已知 $\\Delta ABC$ 的三邊長為 $a = ${p.a}, b = ${p.b}, c = ${p.c}$，且外接圓半徑 $R = ${p.R}$，求其三角形面積。`;
+        document.getElementById('area-t4-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>代入外接圓半徑面積公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t4-ans').classList.add('hidden');
+        safeRenderMath('area-t4-text'); safeRenderMath('area-t4-ans');
+      },
+
+      // 自動初始化全部題目數據
+      initAll: function() {
+        this.cosineT1(); this.cosineT2();
+        this.sineT1();   this.sineT2();
+        this.areaT1();   this.areaT2(); this.areaT3(); this.areaT4();
+      }
+    };
+
+    // 網頁載入完成時排程刷新
+    document.addEventListener("DOMContentLoaded", function() {
+      geoGen.initAll();
+    });
+  </script>
+</body>
+</html>
