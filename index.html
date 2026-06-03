@@ -24,6 +24,7 @@
       -webkit-backdrop-filter: blur(20px);
     }
     .brand-blue { color: #0071e3; }
+    .brand-red { color: #ff3b30; }
     .bg-brand-blue { background-color: #0071e3; }
   </style>
 </head>
@@ -47,10 +48,10 @@
     <section id="view-lobby" class="view-section transition-all duration-300">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
-          三角函數實驗室
+          三角函數<span class="brand-red">修羅場</span>
         </h1>
         <p class="text-base text-gray-500">
-          透過精準題型的動態切換與即時幾何演算，建立「看見關鍵字，反射數學工具」的直覺解題思維。
+          歡迎來到修羅場。在這裡沒有投機，只有絕對的直覺。將基本定理錘煉成「基本功」，看見關鍵字即刻反射解題武器。
         </p>
       </div>
 
@@ -60,8 +61,8 @@
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">a²</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">餘弦定理實驗室</h3>
-          <p class="text-sm text-gray-500 mb-4">精準拆解 SAS 與 SSS 的邊角依存關係，快速鎖定第三邊與夾角餘弦值。</p>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">餘弦定理基本功</h3>
+          <p class="text-sm text-gray-500 mb-4">內化 SAS 與 SSS 的邊角依存關係，極速鎖定第三邊與夾角餘弦值。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -72,8 +73,8 @@
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">sin</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理實驗室</h3>
-          <p class="text-sm text-gray-500 mb-4">掌握 AAS 對邊角比例的平衡，動態聯結外接圓半徑 $R$ 的幾何橋樑。</p>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理基本功</h3>
+          <p class="text-sm text-gray-500 mb-4">掌握 AAS 對邊角比例的平衡，直覺聯結外接圓半徑 $R$ 的幾何橋樑。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -84,8 +85,8 @@
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">Δ</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">三角形面積實驗室</h3>
-          <p class="text-sm text-gray-500 mb-4">橫跨 SAS、海龍、內切圓半徑 $r$ 與外接圓半徑 $R$ 的四大核心公式。</p>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">三角形面積公式基本功</h3>
+          <p class="text-sm text-gray-500 mb-4">徹底內化 SAS、海龍、內切圓半徑 $r$ 與外接圓半徑 $R$ 的四大面積核心。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -99,7 +100,7 @@
       <div class="flex items-center justify-between mb-8">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題二</span>
-          <h2 class="text-2xl font-bold text-gray-900">餘弦定理反射訓練</h2>
+          <h2 class="text-2xl font-bold text-gray-900">餘弦定理反射訓練（基本功）</h2>
         </div>
         <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
       </div>
@@ -131,7 +132,7 @@
       <div class="flex items-center justify-between mb-8">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題三</span>
-          <h2 class="text-2xl font-bold text-gray-900">正弦定理反射訓練</h2>
+          <h2 class="text-2xl font-bold text-gray-900">正弦定理反射訓練（基本功）</h2>
         </div>
         <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
       </div>
@@ -163,7 +164,7 @@
       <div class="flex items-center justify-between mb-8">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-[#0071e3]">主題四</span>
-          <h2 class="text-2xl font-bold text-gray-900">三角形面積四大公式</h2>
+          <h2 class="text-2xl font-bold text-gray-900">三角形面積四大公式（基本功）</h2>
         </div>
         <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
       </div>
