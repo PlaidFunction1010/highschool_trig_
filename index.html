@@ -55,7 +55,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-extreme-limits')">
           <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-500 mb-4 group-hover:scale-105 transition-transform">
@@ -348,7 +348,7 @@
           { type: "sync", expr: "y = 3\\sin x + 4\\sin x", max: "7", sol: "這是大考經典的**同名函數同步**陷阱！因為兩者都是 $\\sin x$，步調完全一致。**不需要且絕不能**套用 $\\sqrt{3^2+4^2}=5$ 的疊合公式。直接合併同類項：$y = (3+4)\\sin x = 7\\sin x$。因此最大值為 $7$。" },
           { type: "mix",  expr: "y = \\sqrt{2}\\sin x + \\sqrt{2}\\cos x", max: "2", sol: "正餘弦混合且角度相同，使用**疊合公式**：最大值為 $\\sqrt{(\\sqrt{2})^2 + (\\sqrt{2})^2} = \\sqrt{2 + 2} = \\sqrt{4} = 2$。" },
           { type: "sync", expr: "y = \\sqrt{2}\\cos x + \\sqrt{2}\\cos x", max: "2\\sqrt{2}", sol: "同名函數且角度同步，直接合併同類項：$y = 2\\sqrt{2}\\cos x$。因此最大值即為係數 $2\\sqrt{2}$，無須疊合。" },
-          { type: "mix",  expr: "y = 5\\sin x - 12\\cos x", max: "13", sol: "正餘弦混合且角度相同，套用疊合公式。最大值為 $\\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$。" }
+          { type: "mix",  expr: "y = 5\\sin x - 12\\cos x", max: "13", sol: "正餘弦混合且角度相同，套用疊合公式. 最大值為 $\\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$。" }
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('extreme-text').innerHTML = `試問三角函數 $${p.expr}$ 的**最大值**為何？`;
@@ -467,46 +467,44 @@
       },
 
       // 9. 主題五 - 題型一：角度比求邊長比
-        sineApp1T1: function() {
-          const pools = [
-            { ratio: "2:3:7", angles: "30^\\circ, 45^\\circ, 105^\\circ", ansStr: "2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})", sol: "首先計算三內角：總和 $180^\\circ \\times \\frac{2,3,7}{12} = 30^\\circ, 45^\\circ, 105^\\circ$。<br>由正弦定理性質可知 $a:b:c = \\sin A : \\sin B : \\sin C$。<br>代入特殊角：$\\sin 30^\\circ : \\sin 45^\\circ : \\sin 105^\\circ = \\frac{1}{2} : \\frac{\\sqrt{2}}{2} : \\frac{\\sqrt{6}+\\sqrt{2}}{4}$。<br>同乘以 $4$ 同分母化簡得：$2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})$。" },
-            { ratio: "1:2:3", angles: "30^\\circ, 60^\\circ, 90^\\circ", ansStr: "1 : \\sqrt{3} : 2", sol: "計算各內角為 $30^\\circ, 60^\\circ, 90^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 60^\\circ : \\sin 90^\\circ = \\frac{1}{2} : \\frac{\\sqrt{3}}{2} : 1 = 1 : \\sqrt{3} : 2$。" },
-            { ratio: "1:1:4", angles: "30^\\circ, 30^\\circ, 120^\\circ", ansStr: "1 : 1 : \\sqrt{3}", sol: "計算各內角為 $30^\\circ, 30^\\circ, 120^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 30^\\circ : \\sin 120^\\circ = \\frac{1}{2} : \\frac{1}{2} : \\frac{\\sqrt{3}}{2} = 1 : 1 : \\sqrt{3}$。" }
-          ];
-          const p = pools[Math.floor(Math.random() * pools.length)];
-          document.getElementById('sine-app1-t1-text').innerHTML = `在 $\\Delta ABC$ 中，若三個內角的角度比 $\\angle A : \\angle B : \\angle C = ${p.ratio}$，試求邊長比 $a : b : c$。`;
-          document.getElementById('sine-app1-t1-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$a:b:c = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
-          document.getElementById('sine-app1-t1-ans').classList.add('hidden');
-          safeRenderMath('sine-app1-t1-text'); safeRenderMath('sine-app1-t1-ans');
-        },
+      sineApp1T1: function() {
+        const pools = [
+          { ratio: "2:3:7", angles: "30^\\circ, 45^\\circ, 105^\\circ", ansStr: "2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})", sol: "首先計算三內角：總和 $180^\\circ \\times \\frac{2,3,7}{12} = 30^\\circ, 45^\\circ, 105^\\circ$。<br>由正弦定理性質可知 $a:b:c = \\sin A : \\sin B : \\sin C$。<br>代入特殊角：$\\sin 30^\\circ : \\sin 45^\\circ : \\sin 105^\\circ = \\frac{1}{2} : \\frac{\\sqrt{2}}{2} : \\frac{\\sqrt{6}+\\sqrt{2}}{4}$。<br>同乘以 $4$ 同分母化簡得：$2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})$。" },
+          { ratio: "1:2:3", angles: "30^\\circ, 60^\\circ, 90^\\circ", ansStr: "1 : \\sqrt{3} : 2", sol: "計算各內角為 $30^\\circ, 60^\\circ, 90^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 60^\\circ : \\sin 90^\\circ = \\frac{1}{2} : \\frac{\\sqrt{3}}{2} : 1 = 1 : \\sqrt{3} : 2$。" },
+          { ratio: "1:1:4", angles: "30^\\circ, 30^\\circ, 120^\\circ", ansStr: "1 : 1 : \\sqrt{3}", sol: "計算各內角為 $30^\\circ, 30^\\circ, 120^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 30^\\circ : \\sin 120^\\circ = \\frac{1}{2} : \\frac{1}{2} : \\frac{\\sqrt{3}}{2} = 1 : 1 : \\sqrt{3}$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('sine-app1-t1-text').innerHTML = `在 $\\Delta ABC$ 中，若三個內角的角度比 $\\angle A : \\angle B : \\angle C = ${p.ratio}$，試求邊長比 $a : b : c$。`;
+        document.getElementById('sine-app1-t1-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$a:b:c = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+        document.getElementById('sine-app1-t1-ans').classList.add('hidden');
+        safeRenderMath('sine-app1-t1-text'); safeRenderMath('sine-app1-t1-ans');
+      },
       
-        // 10. 主題五 - 題型二：齊次方程求正弦比
-        sineApp1T2: function() {
-          const pools = [
-            { cond: "(a-2b+c)^2 + (3a+b-2c)^2 = 0", ratioStr: "3 : 5 : 7", sol: "因為兩實數平方和為 $0$，故兩式必同時為 $0$：<br>1) $a - 2b + c = 0 \\implies a + c = 2b$<br>2) $3a + b - 2c = 0$<br>利用交叉相乘或消去法解三元一次齊次方程：由 (1) 得 $c = 2b - a$，代入 (2) 得 $3a + b - 2(2b - a) = 0 \\implies 5a = 3b \\implies a:b = 3:5$。<br>同理可解得 $a:b:c = 3:5:7$。根據正弦定理性質，$\\sin A : \\sin B : \\sin C = a:b:c = 3:5:7$。" },
-            { cond: "|2a-b-c| + (a+b-2c)^2 = 0", ratioStr: "1 : 1 : 1", sol: "絕對值與平方和皆非負，故兩項必同時為 $0$：<br>1) $2a - b - c = 0$<br>2) $a + b - 2c = 0$<br>兩式相加得 $3a - 3c = 0 \\implies a = c$。代回兩式得 $b = a$。<br>因此 $a:b:c = 1:1:1$。由正弦定理可知 $\\sin A : \\sin B : \\sin C = 1:1:1$。" }
-          ];
-          const p = pools[Math.floor(Math.random() * pools.length)];
-          document.getElementById('sine-app1-t2-text').innerHTML = `設 $\\Delta ABC$ 的三邊長分別為 $a, b, c$，且滿足代數限制式 $${p.cond}$，試求 $\\sin A : \\sin B : \\sin C$。`;
-          document.getElementById('sine-app1-t2-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ratioStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
-          document.getElementById('sine-app1-t2-ans').classList.add('hidden');
-          safeRenderMath('sine-app1-t2-text'); safeRenderMath('sine-app1-t2-ans');
-        },
+      // 10. 主題五 - 題型二：齊次方程求正弦比
+      sineApp1T2: function() {
+        const pools = [
+          { cond: "(a-2b+c)^2 + (3a+b-2c)^2 = 0", ratioStr: "3 : 5 : 7", sol: "因為兩實數平方和為 $0$，故兩式必同時為 $0$：<br>1) $a - 2b + c = 0 \\implies a + c = 2b$<br>2) $3a + b - 2c = 0$<br>利用交叉相乘或消去法解三元一次齊次方程：由 (1) 得 $c = 2b - a$，代入 (2) 得 $3a + b - 2(2b - a) = 0 \\implies 5a = 3b \\implies a:b = 3:5$。<br>同理可解得 $a:b:c = 3:5:7$。根據正弦定理性質，$\\sin A : \\sin B : \\sin C = a:b:c = 3:5:7$。" },
+          { cond: "|2a-b-c| + (a+b-2c)^2 = 0", ratioStr: "1 : 1 : 1", sol: "絕對值與平方和皆非負，故兩項必同時為 $0$：<br>1) $2a - b - c = 0$<br>2) $a + b - 2c = 0$<br>兩式相加得 $3a - 3c = 0 \\implies a = c$。代回兩式得 $b = a$。<br>因此 $a:b:c = 1:1:1$。由正弦定理可知 $\\sin A : \\sin B : \\sin C = 1:1:1$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('sine-app1-t2-text').innerHTML = `設 $\\Delta ABC$ 的三邊長分別為 $a, b, c$，且滿足代數限制式 $${p.cond}$，試求 $\\sin A : \\sin B : \\sin C$。`;
+        document.getElementById('sine-app1-t2-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ratioStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+        document.getElementById('sine-app1-t2-ans').classList.add('hidden');
+        safeRenderMath('sine-app1-t2-text'); safeRenderMath('sine-app1-t2-ans');
+      },
       
-        // 11. 主題五 - 題型三：兩兩邊長和求正弦比
-        sineApp1T3: function() {
-          const pools = [
-            { ratio: "5 : 6 : 7", ansStr: "3 : 2 : 4", sol: "令 $a+b=5k$, $b+c=6k$, $c+a=7k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>依序扣除各別條件：<br>$c = (a+b+c) - (a+b) = 9k - 5k = 4k$<br>$a = (a+b+c) - (b+c) = 9k - 6k = 3k$<br>$b = (a+b+c) - (c+a) = 9k - 7k = 2k$<br>因此邊長比 $a:b:c = 3:2:4$。根據正弦定理，$\\sin A : \\sin B : \\sin C = 3:2:4$。" },
-            { ratio: "6 : 7 : 5", ansStr: "2 : 4 : 3", sol: "令 $a+b=6k$, $b+c=7k$, $c+a=5k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>可求得：$c = 9k - 6k = 3k$，$a = 9k - 7k = 2k$，$b = 9k - 5k = 4k$。<br>故邊長比 $a:b:c = 2:4:3$。依正弦定理，$\\sin A : \\sin B : \\sin C = 2:4:3$。" }
-          ];
-          const p = pools[Math.floor(Math.random() * pools.length)];
-          document.getElementById('sine-app1-t3-text').innerHTML = `若 $\\Delta ABC$ 的三邊長滿足 $(a+b) : (b+c) : (c+a) = ${p.ratio}$，試求 $\\sin A : \\sin B : \\sin C$ 的比值。`;
-          document.getElementById('sine-app1-t3-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
-          document.getElementById('sine-app1-t3-ans').classList.add('hidden');
-          safeRenderMath('sine-app1-t3-text'); safeRenderMath('sine-app1-t3-ans');
-        }
-
-      
+      // 11. 主題五 - 題型三：兩兩邊長和求正弦比 (修正閉合語法)
+      sineApp1T3: function() {
+        const pools = [
+          { ratio: "5 : 6 : 7", ansStr: "3 : 2 : 4", sol: "令 $a+b=5k$, $b+c=6k$, $c+a=7k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>依序扣除各別條件：<br>$c = (a+b+c) - (a+b) = 9k - 5k = 4k$<br>$a = (a+b+c) - (b+c) = 9k - 6k = 3k$<br>$b = (a+b+c) - (c+a) = 9k - 7k = 2k$<br>因此邊長比 $a:b:c = 3:2:4$。根據正弦定理，$\\sin A : \\sin B : \\sin C = 3:2:4$。" },
+          { ratio: "6 : 7 : 5", ansStr: "2 : 4 : 3", sol: "令 $a+b=6k$, $b+c=7k$, $c+a=5k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>可求得：$c = 9k - 6k = 3k$，$a = 9k - 7k = 2k$，$b = 9k - 5k = 4k$。<br>故邊長比 $a:b:c = 2:4:3$。依正弦定理，$\\sin A : \\sin B : \\sin C = 2:4:3$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('sine-app1-t3-text').innerHTML = `若 $\\Delta ABC$ 的三邊長滿足 $(a+b) : (b+c) : (c+a) = ${p.ratio}$，試求 $\\sin A : \\sin B : \\sin C$ 的比值。`;
+        document.getElementById('sine-app1-t3-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+        document.getElementById('sine-app1-t3-ans').classList.add('hidden');
+        safeRenderMath('sine-app1-t3-text'); safeRenderMath('sine-app1-t3-ans');
+      },
 
       // 自動初始化全部題目數據
       initAll: function() {
@@ -514,7 +512,6 @@
         this.cosineT1(); this.cosineT2();
         this.sineT1();   this.sineT2();
         this.areaT1();   this.areaT2(); this.areaT3(); this.areaT4();
-              // 請在你的 initAll 裡面多加這三行：
         this.sineApp1T1();
         this.sineApp1T2();
         this.sineApp1T3();
