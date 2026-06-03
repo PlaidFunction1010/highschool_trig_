@@ -105,6 +105,18 @@
           </div>
         </div>
 
+        <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-sine-app1')">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 mb-4 group-hover:scale-105 transition-transform">
+            <span class="text-xl font-bold">A:B:C</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理的應用1</h3>
+          <p class="text-sm text-gray-500 mb-4">突破代數聯立與角度比例屏障，直擊邊長比與三角比的齊次變換。</p>
+          <div class="flex items-center text-sm font-medium text-[#0071e3]">
+            <span>進入訓練</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+        
       </div>
     </section>
 
@@ -246,6 +258,48 @@
       </div>
     </section>
 
+    <section id="view-sine-app1" class="view-section hidden max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-orange-500">主題五</span>
+          <h2 class="text-2xl font-bold text-gray-900">正弦定理的應用1（進階功力）</h2>
+        </div>
+        <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
+      </div>
+    
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-orange-50 text-orange-600 mb-3">題型一：給定角度比例求邊長比</span>
+          <p id="sine-app1-t1-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('sine-app1-t1')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.sineApp1T1()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="sine-app1-t1-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+    
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-orange-50 text-orange-600 mb-3">題型二：三元齊次方程限制求正弦比</span>
+          <p id="sine-app1-t2-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('sine-app1-t2')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.sineApp1T2()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="sine-app1-t2-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+    
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-orange-50 text-orange-600 mb-3">題型三：邊長循環兩兩相加比例求正弦比</span>
+          <p id="sine-app1-t3-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('sine-app1-t3')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.sineApp1T3()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="sine-app1-t3-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </section>
+    
   </main>
 
   <footer class="bg-white border-t border-gray-200 py-6 text-center text-xs text-gray-400">
@@ -412,12 +466,58 @@
         safeRenderMath('area-t4-text'); safeRenderMath('area-t4-ans');
       },
 
+      // 9. 主題五 - 題型一：角度比求邊長比
+        sineApp1T1: function() {
+          const pools = [
+            { ratio: "2:3:7", angles: "30^\\circ, 45^\\circ, 105^\\circ", ansStr: "2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})", sol: "首先計算三內角：總和 $180^\\circ \\times \\frac{2,3,7}{12} = 30^\\circ, 45^\\circ, 105^\\circ$。<br>由正弦定理性質可知 $a:b:c = \\sin A : \\sin B : \\sin C$。<br>代入特殊角：$\\sin 30^\\circ : \\sin 45^\\circ : \\sin 105^\\circ = \\frac{1}{2} : \\frac{\\sqrt{2}}{2} : \\frac{\\sqrt{6}+\\sqrt{2}}{4}$。<br>同乘以 $4$ 同分母化簡得：$2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})$。" },
+            { ratio: "1:2:3", angles: "30^\\circ, 60^\\circ, 90^\\circ", ansStr: "1 : \\sqrt{3} : 2", sol: "計算各內角為 $30^\\circ, 60^\\circ, 90^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 60^\\circ : \\sin 90^\\circ = \\frac{1}{2} : \\frac{\\sqrt{3}}{2} : 1 = 1 : \\sqrt{3} : 2$。" },
+            { ratio: "1:1:4", angles: "30^\\circ, 30^\\circ, 120^\\circ", ansStr: "1 : 1 : \\sqrt{3}", sol: "計算各內角為 $30^\\circ, 30^\\circ, 120^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 30^\\circ : \\sin 120^\\circ = \\frac{1}{2} : \\frac{1}{2} : \\frac{\\sqrt{3}}{2} = 1 : 1 : \\sqrt{3}$。" }
+          ];
+          const p = pools[Math.floor(Math.random() * pools.length)];
+          document.getElementById('sine-app1-t1-text').innerHTML = `在 $\\Delta ABC$ 中，若三個內角的角度比 $\\angle A : \\angle B : \\angle C = ${p.ratio}$，試求邊長比 $a : b : c$。`;
+          document.getElementById('sine-app1-t1-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$a:b:c = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+          document.getElementById('sine-app1-t1-ans').classList.add('hidden');
+          safeRenderMath('sine-app1-t1-text'); safeRenderMath('sine-app1-t1-ans');
+        },
+      
+        // 10. 主題五 - 題型二：齊次方程求正弦比
+        sineApp1T2: function() {
+          const pools = [
+            { cond: "(a-2b+c)^2 + (3a+b-2c)^2 = 0", ratioStr: "3 : 5 : 7", sol: "因為兩實數平方和為 $0$，故兩式必同時為 $0$：<br>1) $a - 2b + c = 0 \\implies a + c = 2b$<br>2) $3a + b - 2c = 0$<br>利用交叉相乘或消去法解三元一次齊次方程：由 (1) 得 $c = 2b - a$，代入 (2) 得 $3a + b - 2(2b - a) = 0 \\implies 5a = 3b \\implies a:b = 3:5$。<br>同理可解得 $a:b:c = 3:5:7$。根據正弦定理性質，$\\sin A : \\sin B : \\sin C = a:b:c = 3:5:7$。" },
+            { cond: "|2a-b-c| + (a+b-2c)^2 = 0", ratioStr: "1 : 1 : 1", sol: "絕對值與平方和皆非負，故兩項必同時為 $0$：<br>1) $2a - b - c = 0$<br>2) $a + b - 2c = 0$<br>兩式相加得 $3a - 3c = 0 \\implies a = c$。代回兩式得 $b = a$。<br>因此 $a:b:c = 1:1:1$。由正弦定理可知 $\\sin A : \\sin B : \\sin C = 1:1:1$。" }
+          ];
+          const p = pools[Math.floor(Math.random() * pools.length)];
+          document.getElementById('sine-app1-t2-text').innerHTML = `設 $\\Delta ABC$ 的三邊長分別為 $a, b, c$，且滿足代數限制式 $${p.cond}$，試求 $\\sin A : \\sin B : \\sin C$。`;
+          document.getElementById('sine-app1-t2-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ratioStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+          document.getElementById('sine-app1-t2-ans').classList.add('hidden');
+          safeRenderMath('sine-app1-t2-text'); safeRenderMath('sine-app1-t2-ans');
+        },
+      
+        // 11. 主題五 - 題型三：兩兩邊長和求正弦比
+        sineApp1T3: function() {
+          const pools = [
+            { ratio: "5 : 6 : 7", ansStr: "3 : 2 : 4", sol: "令 $a+b=5k$, $b+c=6k$, $c+a=7k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>依序扣除各別條件：<br>$c = (a+b+c) - (a+b) = 9k - 5k = 4k$<br>$a = (a+b+c) - (b+c) = 9k - 6k = 3k$<br>$b = (a+b+c) - (c+a) = 9k - 7k = 2k$<br>因此邊長比 $a:b:c = 3:2:4$。根據正弦定理，$\\sin A : \\sin B : \\sin C = 3:2:4$。" },
+            { ratio: "6 : 7 : 5", ansStr: "2 : 4 : 3", sol: "令 $a+b=6k$, $b+c=7k$, $c+a=5k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>可求得：$c = 9k - 6k = 3k$，$a = 9k - 7k = 2k$，$b = 9k - 5k = 4k$。<br>故邊長比 $a:b:c = 2:4:3$。依正弦定理，$\\sin A : \\sin B : \\sin C = 2:4:3$。" }
+          ];
+          const p = pools[Math.floor(Math.random() * pools.length)];
+          document.getElementById('sine-app1-t3-text').innerHTML = `若 $\\Delta ABC$ 的三邊長滿足 $(a+b) : (b+c) : (c+a) = ${p.ratio}$，試求 $\\sin A : \\sin B : \\sin C$ 的比值。`;
+          document.getElementById('sine-app1-t3-ans').innerHTML = `<div class="font-bold text-orange-600 mb-1">答案：$\\sin A : \\sin B : \\sin C = ${p.ansStr}$</div><div class="text-xs text-gray-500">【修羅場解法】<br>${p.sol}</div>`;
+          document.getElementById('sine-app1-t3-ans').classList.add('hidden');
+          safeRenderMath('sine-app1-t3-text'); safeRenderMath('sine-app1-t3-ans');
+        }
+
+      
+
       // 自動初始化全部題目數據
       initAll: function() {
         this.extremeT1();
         this.cosineT1(); this.cosineT2();
         this.sineT1();   this.sineT2();
         this.areaT1();   this.areaT2(); this.areaT3(); this.areaT4();
+              // 請在你的 initAll 裡面多加這三行：
+        this.sineApp1T1();
+        this.sineApp1T2();
+        this.sineApp1T3();
       }
     };
 
