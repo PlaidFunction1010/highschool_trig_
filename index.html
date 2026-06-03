@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>數位數學教案：三角函數篇</title>
   
+  <!-- Tailwind CSS CDN (Apple 極簡美學風) -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   
+  <!-- KaTeX CDN (數學公式混合渲染) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -30,6 +32,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
+  <!-- 頂部導航欄 -->
   <header class="sticky top-0 z-50 apple-blur border-b border-gray-200/80 transition-all">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('view-lobby')">
@@ -43,8 +46,10 @@
     </div>
   </header>
 
+  <!-- 主要內容舞台 (Stage) -->
   <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-10">
     
+    <!-- ================= 門戶網頁：首頁大廳 ================= -->
     <section id="view-lobby" class="view-section transition-all duration-300">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
@@ -55,13 +60,15 @@
         </p>
       </div>
 
+      <!-- 響應式網格佈局優化 -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
+        <!-- 卡片：主題一 -->
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-extreme-limits')">
           <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-500 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">±Max</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">三角比快速練習-基本功</h3>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題一：三角比快速練習-基本功</h3>
           <p class="text-sm text-gray-500 mb-4">精準辨識函數疊合與同步同名函數的極值臨界點，一眼看穿大考公式陷阱。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
@@ -69,35 +76,38 @@
           </div>
         </div>
 
+        <!-- 卡片：主題二 -->
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-cosine-law')">
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">a²</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">餘弦定理基本功</h3>
-          <p class="text-sm text-gray-500 mb-4">內化 SAS 與 SSS 的邊角依存關係，極速鎖定第三邊與夾角餘弦值。</p>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題二：餘弦定理基本功</h3>
+          <p class="text-sm text-gray-500 mb-4">內化 SAS 與 SSS 的邊角依存關係，極速鎖定包含 15° 等多重特殊角之第三邊與餘弦值。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
         </div>
 
+        <!-- 卡片：主題三 -->
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-sine-law')">
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">sin</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理基本功</h3>
-          <p class="text-sm text-gray-500 mb-4">掌握 AAS 對邊角比例的平衡，直覺聯結外接圓半徑 $R$ 的幾何橋樑。</p>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題三：正弦定理基本功</h3>
+          <p class="text-sm text-gray-500 mb-4">掌握 AAS 對邊角比例的平衡，直覺聯結 75°、150° 等高難度特殊角之外接圓半徑 $R$ 幾何橋樑。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
         </div>
 
+        <!-- 卡片：主題四 -->
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-triangle-area')">
           <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">Δ</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">三角形面積公式基本功</h3>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題四：三角形面積公式基本功</h3>
           <p class="text-sm text-gray-500 mb-4">徹底內化 SAS、海龍、內切圓半徑 $r$ 與外接圓半徑 $R$ 的四大面積核心。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
@@ -105,21 +115,39 @@
           </div>
         </div>
 
+        <!-- 卡片：主題五 -->
         <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-sine-app1')">
           <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 mb-4 group-hover:scale-105 transition-transform">
             <span class="text-xl font-bold">A:B:C</span>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">正弦定理的應用1</h3>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題五：正弦定理的應用1</h3>
           <p class="text-sm text-gray-500 mb-4">突破代數聯立與角度比例屏障，直擊邊長比與三角比的齊次變換。</p>
           <div class="flex items-center text-sm font-medium text-[#0071e3]">
             <span>進入訓練</span>
             <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
         </div>
+
+        <!-- 卡片：主題六 -->
+        <div class="group bg-white rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 cursor-pointer text-left" onclick="switchView('view-circle-sine')">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 mb-4 group-hover:scale-105 transition-transform">
+            <span class="text-xl font-bold">◯</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">主題六：圓與正弦幾何應用</h3>
+          <p class="text-sm text-gray-500 mb-4">跨越圓內接四邊形與雙圓割線阻礙，看穿公共弦與外接圓半徑的依存本質。</p>
+          <div class="flex items-center text-sm font-medium text-[#0071e3]">
+            <span>進入訓練</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+        <!-- 🎯 新增卡片從這裡開始 -->
+        <!-- 🎯 新增卡片到這裡結束 -->
         
       </div>
     </section>
 
+    <!-- ================= 主題一：三角比快速練習-基本功 視窗 ================= -->
     <section id="view-extreme-limits" class="view-section hidden max-w-4xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -142,6 +170,7 @@
       </div>
     </section>
 
+    <!-- ================= 主題二：餘弦定理視窗 ================= -->
     <section id="view-cosine-law" class="view-section hidden max-w-4xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -174,6 +203,7 @@
       </div>
     </section>
 
+    <!-- ================= 主題三：正弦定理視窗 ================= -->
     <section id="view-sine-law" class="view-section hidden max-w-4xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -206,6 +236,7 @@
       </div>
     </section>
 
+    <!-- ================= 主題四：三角形面積視窗 ================= -->
     <section id="view-triangle-area" class="view-section hidden max-w-4xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -258,6 +289,7 @@
       </div>
     </section>
 
+    <!-- ================= 主題五：正弦定理的應用1 視窗 ================= -->
     <section id="view-sine-app1" class="view-section hidden max-w-4xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
@@ -299,6 +331,52 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= 主題六：圓與正弦幾何應用 視窗 ================= -->
+    <section id="view-circle-sine" class="view-section hidden max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">主題六</span>
+          <h2 class="text-2xl font-bold text-gray-900">圓與正弦幾何應用（修羅場特訓）</h2>
+        </div>
+        <button onclick="switchView('view-lobby')" class="px-4 py-2 text-sm bg-white border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 font-medium transition-colors shadow-xs">返回大廳</button>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-purple-50 text-purple-600 mb-3">題型一：圓內接四邊形對角共圓臨界變換</span>
+          <p id="circle-t1-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('circle-t1')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.circleSineT1()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="circle-t1-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-purple-50 text-purple-600 mb-3">題型二：雙圓相交公共弦與連續正弦連鎖定理</span>
+          <p id="circle-t2-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('circle-t2')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.circleSineT2()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="circle-t2-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-xs border border-gray-100">
+          <span class="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-purple-50 text-purple-600 mb-3">題型三：共用弦限制下雙圓面積與周長伸縮比</span>
+          <p id="circle-t3-text" class="text-base text-gray-800 font-medium mb-4">正在載入題目...</p>
+          <div class="flex flex-wrap gap-3 items-center">
+            <button onclick="toggleAns('circle-t3')" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-xs">對答案與詳解</button>
+            <button onclick="geoGen.circleSineT3()" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">換一題</button>
+          </div>
+          <div id="circle-t3-ans" class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-700 leading-relaxed"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎯 新增內頁容器從這裡開始 -->
+    <!-- 🎯 新增內頁容器到這裡結束 -->
     
   </main>
 
@@ -325,7 +403,7 @@
       if (el) el.classList.toggle('hidden');
     }
 
-    // 安全解析渲染器 (預防中文字元與 LaTeX 衝突)
+    // 安全解析渲染器
     function safeRenderMath(id) {
       const container = document.getElementById(id);
       if (container && typeof renderMathInElement === 'function') {
@@ -344,11 +422,10 @@
       // 0. 主題一：正餘弦極值與速解邊界
       extremeT1: function() {
         const pools = [
-          { type: "mix",  expr: "y = 3\\sin x + 4\\cos x", max: "5", sol: "這是經典的**正餘弦疊合**型態。由於 $\\sin x$ 與 $\\cos x$ 角度相同但步調（相位）不同，無法在相同位置達到極值。應套用疊合公式：$y = \\sqrt{3^2 + 4^2}\\sin(x + \\theta) = 5\\sin(x + \\theta)$。因此最大值為 $5$。" },
-          { type: "sync", expr: "y = 3\\sin x + 4\\sin x", max: "7", sol: "這是大考經典的**同名函數同步**陷阱！因為兩者都是 $\\sin x$，步調完全一致。**不需要且絕不能**套用 $\\sqrt{3^2+4^2}=5$ 的疊合公式。直接合併同類項：$y = (3+4)\\sin x = 7\\sin x$。因此最大值為 $7$。" },
-          { type: "mix",  expr: "y = \\sqrt{2}\\sin x + \\sqrt{2}\\cos x", max: "2", sol: "正餘弦混合且角度相同，使用**疊合公式**：最大值為 $\\sqrt{(\\sqrt{2})^2 + (\\sqrt{2})^2} = \\sqrt{2 + 2} = \\sqrt{4} = 2$。" },
-          { type: "sync", expr: "y = \\sqrt{2}\\cos x + \\sqrt{2}\\cos x", max: "2\\sqrt{2}", sol: "同名函數且角度同步，直接合併同類項：$y = 2\\sqrt{2}\\cos x$。因此最大值即為係數 $2\\sqrt{2}$，無須疊合。" },
-          { type: "mix",  expr: "y = 5\\sin x - 12\\cos x", max: "13", sol: "正餘弦混合且角度相同，套用疊合公式. 最大值為 $\\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$。" }
+          { type: "mix",  expr: "y = 3\\sin x + 4\\cos x", max: "5", sol: "這是經典的**正餘弦疊合**型態。角度相同但步調（相位）不同，應套用疊合公式：$y = \\sqrt{3^2 + 4^2}\\sin(x + \\theta) = 5\\sin(x + \\theta)$。最大值為 $5$。" },
+          { type: "sync", expr: "y = 3\\sin x + 4\\sin x", max: "7", sol: "這是大考經典的**同名函數同步**陷阱！兩者都是 $\\sin x$，步調完全一致。直接合併同類項：$y = (3+4)\\sin x = 7\\sin x$，最大值為 $7$。" },
+          { type: "mix",  expr: "y = \\sqrt{2}\\sin x + \\sqrt{2}\\cos x", max: "2", sol: "正餘弦混合且角度相同，套用疊合公式：最大值為 $\\sqrt{(\\sqrt{2})^2 + (\\sqrt{2})^2} = 2$。" },
+          { type: "sync", expr: "y = \\sqrt{2}\\cos x + \\sqrt{2}\\cos x", max: "2\\sqrt{2}", sol: "同名函數且角度同步，直接合併同類項：$y = 2\\sqrt{2}\\cos x$。因此最大值即為係數 $2\\sqrt{2}$。" }
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('extreme-text').innerHTML = `試問三角函數 $${p.expr}$ 的**最大值**為何？`;
@@ -357,13 +434,13 @@
         safeRenderMath('extreme-text'); safeRenderMath('extreme-ans');
       },
 
-      // 1. 餘弦定理 SAS 求第三邊
+      // 1. 主題二：餘弦定理 SAS 求第三邊 (升級特殊角題庫)
       cosineT1: function() {
         const pools = [
           {b: 3, c: 5, A: 120, ansStr: "7", sol: "a^2 = 3^2 + 5^2 - 2(3)(5)\\cos(120^\\circ) = 9 + 25 - 30(-\\frac{1}{2}) = 49 \\implies a = 7"},
           {b: 5, c: 8, A: 60,  ansStr: "7", sol: "a^2 = 5^2 + 8^2 - 2(5)(8)\\cos(60^\\circ) = 25 + 64 - 80(\\frac{1}{2}) = 49 \\implies a = 7"},
-          {b: 3, c: 8, A: 60,  ansStr: "7", sol: "a^2 = 3^2 + 8^2 - 2(3)(8)\\cos(60^\\circ) = 9 + 64 - 48(\\frac{1}{2}) = 49 \\implies a = 7"},
-          {b: 1, c: 2, A: 120, ansStr: "\\sqrt{7}", sol: "a^2 = 1^2 + 2^2 - 2(1)(2)\\cos(120^\\circ) = 1 + 4 - 4(-\\frac{1}{2}) = 7 \\implies a = \\sqrt{7}"}
+          {b: 2, c: "(\\sqrt{6}-\\sqrt{2})", A: 150, ansStr: "\\sqrt{6}+\\sqrt{2}", sol: "$\\cos(150^\\circ) = -\\frac{\\sqrt{3}}{2}$。代入餘弦定理經雙重根號化簡，可精準得解 $a = \\sqrt{6}+\\sqrt{2}$。"},
+          {b: 2, c: "(\\sqrt{6}+\\sqrt{2})", A: 135, ansStr: "\\sqrt{14+4\\sqrt{3}}", sol: "$\\cos(135^\\circ) = -\\frac{\\sqrt{2}}{2}$。帶入公式運算化簡得解。"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('cos-t1-text').innerHTML = `在 $\\Delta ABC$ 中，已知邊長 $b = ${p.b}$，$c = ${p.c}$，且夾角 $\\angle A = ${p.A}^\\circ$，求第三邊 $a$ 的長度。`;
@@ -372,12 +449,11 @@
         safeRenderMath('cos-t1-text'); safeRenderMath('cos-t1-ans');
       },
 
-      // 2. 餘弦定理 SSS 求角度
+      // 2. 主題二：餘弦定理 SSS 求角度
       cosineT2: function() {
         const pools = [
-          {a: 3, b: 5, c: 7, target: "C", ansStr: "-1/2 \\implies \\angle C = 120^\\circ", sol: "\\cos C = \\frac{3^2 + 5^2 - 7^2}{2 \\times 3 \\times 5} = \\frac{9 + 25 - 49}{30} = -\\frac{15}{30} = -\\frac{1}{2}"},
-          {a: 5, b: 7, c: 8, target: "B", ansStr: "1/2 \\implies \\angle B = 60^\\circ", sol: "\\cos B = \\frac{5^2 + 8^2 - 7^2}{2 \\times 5 \\times 8} = \\frac{25 + 64 - 49}{80} = \\frac{40}{80} = \\frac{1}{2}"},
-          {a: 3, b: 7, c: 8, target: "A", ansStr: "11/14", sol: "\\cos A = \\frac{7^2 + 8^2 - 3^2}{2 \\times 7 \\times 8} = \\frac{49 + 64 - 9}{112} = \\frac{104}{112} = \\frac{11}{14}"}
+          {a: 3, b: 5, c: 7, target: "C", ansStr: "-1/2 \\implies \\angle C = 120^\\circ", sol: "\\cos C = \\frac{3^2 + 5^2 - 7^2}{2 \\times 3 \\times 5} = -\\frac{15}{30} = -\\frac{1}{2}"},
+          {a: 2, b: "(\\sqrt{6}-\\sqrt{2})", c: "(\\sqrt{6}+\\sqrt{2})", target: "A", ansStr: "0 \\implies \\angle A = 90^\\circ", sol: "經平方化簡分子 $b^2+c^2-a^2 = (8-4\\sqrt{3}) + (8+4\\sqrt{3}) - 4 - 12 = 0$，故 $\\cos A = 0$。"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('cos-t2-text').innerHTML = `已知 $\\Delta ABC$ 的三邊長分別為 $a = ${p.a}$，$b = ${p.b}$，$c = ${p.c}$，試求 $\\cos ${p.target}$ 的值與對應角度。`;
@@ -386,92 +462,88 @@
         safeRenderMath('cos-t2-text'); safeRenderMath('cos-t2-ans');
       },
 
-      // 3. 正弦定理 AAS 求對邊
+      // 3. 主題三：正弦定理 AAS 求對邊 (升級特殊角題庫)
       sineT1: function() {
         const pools = [
-          {A: 45, B: 60, a: 4, ansStr: "2\\sqrt{6}", sol: "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies \\frac{4}{\\sin 45^\\circ} = \\frac{b}{\\sin 60^\\circ} \\implies b = 4 \\times \\frac{\\sqrt{3}/2}{\\sqrt{2}/2} = 2\\sqrt{6}"},
-          {A: 30, B: 45, a: 5, ansStr: "5\\sqrt{2}", sol: "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies \\frac{5}{\\sin 30^\\circ} = \\frac{b}{\\sin 45^\\circ} \\implies b = 5 \\times \\frac{\\sqrt{2}/2}{1/2} = 5\\sqrt{2}"}
+          {A: 45, B: 60, a: 4, ansStr: "2\\sqrt{6}", sol: "\\frac{4}{\\sin 45^\\circ} = \\frac{b}{\\sin 60^\\circ} \\implies b = 2\\sqrt{6}"},
+          {A: 30, B: 15, a: 4, ansStr: "2(\\sqrt{6}-\\sqrt{2})", sol: "$\\sin 15^\\circ = \\frac{\\sqrt{6}-\\sqrt{2}}{4}$。根據正弦定理比值：$b = 4 \\times \\frac{\\sin 15^\\circ}{\\sin 30^\\circ} = 2(\\sqrt{6}-\\sqrt{2})$。"},
+          {A: 30, B: 75, a: 2, ansStr: "\\sqrt{6}+\\sqrt{2}", sol: "$\\sin 75^\\circ = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$。代入正弦公式同理求得邊長。"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('sine-t1-text').innerHTML = `在 $\\Delta ABC$ 中，已知 $\\angle A = ${p.A}^\\circ$，$\\angle B = ${p.B}^\\circ$，且 $\\angle A$ 的對邊 $a = ${p.a}$，求 $\\angle B$ 的對邊 $b$ 的長度。`;
-        document.getElementById('sine-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$b = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>依據正弦定理比例：$${p.sol}$$</div>`;
+        document.getElementById('sine-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$b = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('sine-t1-ans').classList.add('hidden');
         safeRenderMath('sine-t1-text'); safeRenderMath('sine-t1-ans');
       },
 
-      // 4. 正弦定理 結合外接圓半徑 R
+      // 4. 主題三：正弦定理 外接圓 R (包含 150度/90度 擴充)
       sineT2: function() {
         const pools = [
-          {A: 60, a: 6, ansStr: "2\\sqrt{3}", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{6}{\\sin 60^\\circ} = 2R \\implies \\frac{6}{\\sqrt{3}/2} = 4\\sqrt{3} = 2R \\implies R = 2\\sqrt{3}"},
-          {A: 45, a: 10, ansStr: "5\\sqrt{2}", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{10}{\\sin 45^\\circ} = 2R \\implies \\frac{10}{\\sqrt{2}/2} = 10\\sqrt{2} = 2R \\implies R = 5\\sqrt{2}"},
-          {A: 30, a: 7, ansStr: "7", sol: "\\frac{a}{\\sin A} = 2R \\implies \\frac{7}{\\sin 30^\\circ} = 2R \\implies \\frac{7}{1/2} = 14 = 2R \\implies R = 7"}
+          {A: 60, a: 6, ansStr: "2\\sqrt{3}", sol: "\\frac{6}{\\sin 60^\\circ} = 2R \\implies R = 2\\sqrt{3}"},
+          {A: 150, a: 5, ansStr: "5", sol: "$\\sin 150^\\circ = \\sin 30^\\circ = \\frac{1}{2}$。由 $\\frac{5}{1/2} = 2R \\implies 2R = 10 \\implies R = 5$。"},
+          {A: 90, a: 12, ansStr: "6", sol: "$\\sin 90^\\circ = 1$。直角三角形直徑即斜邊，$2R = 12 \\implies R = 6$。"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('sine-t2-text').innerHTML = `在 $\\Delta ABC$ 中，已知邊長 $a = ${p.a}$，且其相對內角 $\\angle A = ${p.A}^\\circ$，試求此三角形的外接圓半徑 $R$。`;
-        document.getElementById('sine-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$R = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>由正弦定理性質：$${p.sol}$$</div>`;
+        document.getElementById('sine-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：$R = ${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('sine-t2-ans').classList.add('hidden');
         safeRenderMath('sine-t2-text'); safeRenderMath('sine-t2-ans');
       },
 
-      // 5. 面積公式一：SAS
+      // 5. 主題四：面積公式一：SAS
       areaT1: function() {
         const pools = [
-          {b: 4, c: 5, A: 30, ansStr: "5", sol: "\\Delta = \\frac{1}{2}bc\\sin A = \\frac{1}{2}(4)(5)\\sin(30^\\circ) = 10 \\times \\frac{1}{2} = 5"},
-          {b: 6, c: 8, A: 120, ansStr: "12\\sqrt{3}", sol: "\\Delta = \\frac{1}{2}bc\\sin A = \\frac{1}{2}(6)(8)\\sin(120^\\circ) = 24 \\times \\frac{\\sqrt{3}}{2} = 12\\sqrt{3}"}
+          {b: 4, c: 5, A: 30, ansStr: "5", sol: "\\Delta = \\frac{1}{2}(4)(5)\\sin(30^\\circ) = 5"},
+          {b: 4, c: 8, A: 135, ansStr: "8\\sqrt{2}", sol: "\\Delta = \\frac{1}{2}(4)(8)\\sin(135^\\circ) = 16 \\times \\frac{\\sqrt{2}}{2} = 8\\sqrt{2}"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('area-t1-text').innerHTML = `已知 $\\Delta ABC$ 中，邊長 $b = ${p.b}$，$c = ${p.c}$，且兩者夾角 $\\angle A = ${p.A}^\\circ$，求此三角形的面積。`;
-        document.getElementById('area-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>代入正弦面積公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t1-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('area-t1-ans').classList.add('hidden');
         safeRenderMath('area-t1-text'); safeRenderMath('area-t1-ans');
       },
 
-      // 6. 面積公式二：海龍公式
+      // 6. 主題四：面積公式二：海龍
       areaT2: function() {
         const pools = [
-          {a: 5, b: 6, c: 7, ansStr: "6\\sqrt{6}", sol: "s = \\frac{5+6+7}{2} = 9 \\\\ \\Delta = \\sqrt{9(9-5)(9-6)(9-7)} = \\sqrt{9 \\times 4 \\times 3 \\times 2} = 6\\sqrt{6}"},
-          {a: 5, b: 7, c: 8, ansStr: "10\\sqrt{3}", sol: "s = \\frac{5+7+8}{2} = 10 \\\\ \\Delta = \\sqrt{10(10-5)(10-7)(10-8)} = \\sqrt{10 \\times 5 \\times 3 \\times 2} = 10\\sqrt{3}"},
-          {a: 4, b: 13, c: 15, ansStr: "24", sol: "s = \\frac{4+13+15}{2} = 16 \\\\ \\Delta = \\sqrt{16(16-4)(16-13)(16-15)} = \\sqrt{16 \\times 12 \\times 3 \\times 1} = 24"}
+          {a: 5, b: 6, c: 7, ansStr: "6\\sqrt{6}", sol: "s = \\frac{5+6+7}{2} = 9 \\implies \\sqrt{9(4)(3)(2)} = 6\\sqrt{6}"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('area-t2-text').innerHTML = `已知 $\\Delta ABC$ 的三邊整數長分別為 $a = ${p.a}$，$b = ${p.b}$，$c = ${p.c}$，求其三角形面積。`;
-        document.getElementById('area-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>計算半周長 $s$ 後代入海龍公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t2-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('area-t2-ans').classList.add('hidden');
         safeRenderMath('area-t2-text'); safeRenderMath('area-t2-ans');
       },
 
-      // 7. 面積公式三：內切圓半徑 r 與周長
+      // 7. 主題四：面積公式三：內切圓 r
       areaT3: function() {
         const pools = [
-          {perim: 24, r: 2, ansStr: "24", sol: "s = \\frac{\\text{周長}}{2} = \\frac{24}{2} = 12 \\\\ \\Delta = r \\times s = 2 \\times 12 = 24"},
-          {perim: 30, r: 3, ansStr: "45", sol: "s = \\frac{\\text{周長}}{2} = \\frac{30}{2} = 15 \\\\ \\Delta = r \\times s = 3 \\times 15 = 45"}
+          {perim: 24, r: 2, ansStr: "24", sol: "s = 24 / 2 = 12 \\\\ \\Delta = r \\times s = 2 \\times 12 = 24"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('area-t3-text').innerHTML = `若一個三角形的總周長為 $${p.perim}$，且其內切圓半徑 $r = ${p.r}$，求此三角形的面積。`;
-        document.getElementById('area-t3-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>由內切圓半徑與面積公式 $\\Delta = rs$：$${p.sol}$$</div>`;
+        document.getElementById('area-t3-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('area-t3-ans').classList.add('hidden');
         safeRenderMath('area-t3-text'); safeRenderMath('area-t3-ans');
       },
 
-      // 8. 面積公式四：外接圓半徑 R 與三邊長
+      // 8. 主題四：面積公式四：外接圓 R
       areaT4: function() {
         const pools = [
-          {a: 3, b: 5, c: 7, R: "\\frac{7}{\\sqrt{3}}", ansStr: "\\frac{15\\sqrt{3}}{4}", sol: "\\Delta = \\frac{abc}{4R} = \\frac{3 \\times 5 \\times 7}{4 \\times \\frac{7}{\\sqrt{3}}} = \\frac{105}{\\frac{28}{\\sqrt{3}}} = \\frac{15\\sqrt{3}}{4}"},
-          {a: 5, b: 5, c: 6, R: "\\frac{25}{8}", ansStr: "12", sol: "\\Delta = \\frac{abc}{4R} = \\frac{5 \\times 5 \\times 6}{4 \\times \\frac{25}{8}} = \\frac{150}{\\frac{100}{8}} = 12"}
+          {a: 5, b: 5, c: 6, R: "\\frac{25}{8}", ansStr: "12", sol: "\\Delta = \\frac{abc}{4R} = \\frac{150}{4 \\times \\frac{25}{8}} = 12"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
-        document.getElementById('area-t4-text').innerHTML = `已知 $\\Delta ABC$ 的三邊長為 $a = ${p.a}, b = ${p.b}, c = ${p.c}$，且外接圓半徑 $R = ${p.R}$，求其三角形面積。`;
-        document.getElementById('area-t4-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>代入外接圓半徑面積公式：$${p.sol}$$</div>`;
+        document.getElementById('area-t4-text').innerHTML = `已知 $\Delta ABC$ 的三邊長為 $a = ${p.a}, b = ${p.b}, c = ${p.c}$，且外接圓半徑 $R = ${p.R}$，求其三角形面積。`;
+        document.getElementById('area-t4-ans').innerHTML = `<div class="font-bold text-blue-600 mb-1">答案：面積 = $${p.ansStr}$</div><div class="text-xs text-gray-500">【計算詳解】<br>$${p.sol}$$</div>`;
         document.getElementById('area-t4-ans').classList.add('hidden');
         safeRenderMath('area-t4-text'); safeRenderMath('area-t4-ans');
       },
 
-      // 9. 主題五 - 題型一：角度比求邊長比
+      // 9. 主題五 - 題型一：角度比 (融入 15度倍數黃金比例)
       sineApp1T1: function() {
         const pools = [
-          { ratio: "2:3:7", angles: "30^\\circ, 45^\\circ, 105^\\circ", ansStr: "2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})", sol: "首先計算三內角：總和 $180^\\circ \\times \\frac{2,3,7}{12} = 30^\\circ, 45^\\circ, 105^\\circ$。<br>由正弦定理性質可知 $a:b:c = \\sin A : \\sin B : \\sin C$。<br>代入特殊角：$\\sin 30^\\circ : \\sin 45^\\circ : \\sin 105^\\circ = \\frac{1}{2} : \\frac{\\sqrt{2}}{2} : \\frac{\\sqrt{6}+\\sqrt{2}}{4}$。<br>同乘以 $4$ 同分母化簡得：$2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})$。" },
-          { ratio: "1:2:3", angles: "30^\\circ, 60^\\circ, 90^\\circ", ansStr: "1 : \\sqrt{3} : 2", sol: "計算各內角為 $30^\\circ, 60^\\circ, 90^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 60^\\circ : \\sin 90^\\circ = \\frac{1}{2} : \\frac{\\sqrt{3}}{2} : 1 = 1 : \\sqrt{3} : 2$。" },
-          { ratio: "1:1:4", angles: "30^\\circ, 30^\\circ, 120^\\circ", ansStr: "1 : 1 : \\sqrt{3}", sol: "計算各內角為 $30^\\circ, 30^\\circ, 120^\\circ$。<br>由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 30^\\circ : \\sin 120^\\circ = \\frac{1}{2} : \\frac{1}{2} : \\frac{\\sqrt{3}}{2} = 1 : 1 : \\sqrt{3}$。" }
+          { ratio: "2:3:7", ansStr: "2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})", sol: "內角為 $30^\\circ, 45^\\circ, 105^\\circ$。由正弦定理 $a:b:c = \\sin 30^\\circ : \\sin 45^\\circ : \\sin 105^\\circ = \\frac{1}{2} : \\frac{\\sqrt{2}}{2} : \\frac{\\sqrt{6}+\\sqrt{2}}{4} = 2 : 2\\sqrt{2} : (\\sqrt{6}+\\sqrt{2})$。" },
+          { ratio: "1:5:6", ansStr: "(\\sqrt{6}-\\sqrt{2}) : (\\sqrt{6}+\\sqrt{2}) : 4", sol: "總和 $180^\\circ \\times \\frac{1,5,6}{12} = 15^\\circ, 75^\\circ, 90^\\circ$。由正弦比 $\\sin 15^\\circ : \\sin 75^\\circ : \\sin 90^\\circ = \\frac{\\sqrt{6}-\\sqrt{2}}{4} : \\frac{\\sqrt{6}+\\sqrt{2}}{4} : 1$。同乘 $4$ 即可得解。"}
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('sine-app1-t1-text').innerHTML = `在 $\\Delta ABC$ 中，若三個內角的角度比 $\\angle A : \\angle B : \\angle C = ${p.ratio}$，試求邊長比 $a : b : c$。`;
@@ -480,11 +552,10 @@
         safeRenderMath('sine-app1-t1-text'); safeRenderMath('sine-app1-t1-ans');
       },
       
-      // 10. 主題五 - 題型二：齊次方程求正弦比
+      // 10. 主題五 - 題型二：齊次方程
       sineApp1T2: function() {
         const pools = [
-          { cond: "(a-2b+c)^2 + (3a+b-2c)^2 = 0", ratioStr: "3 : 5 : 7", sol: "因為兩實數平方和為 $0$，故兩式必同時為 $0$：<br>1) $a - 2b + c = 0 \\implies a + c = 2b$<br>2) $3a + b - 2c = 0$<br>利用交叉相乘或消去法解三元一次齊次方程：由 (1) 得 $c = 2b - a$，代入 (2) 得 $3a + b - 2(2b - a) = 0 \\implies 5a = 3b \\implies a:b = 3:5$。<br>同理可解得 $a:b:c = 3:5:7$。根據正弦定理性質，$\\sin A : \\sin B : \\sin C = a:b:c = 3:5:7$。" },
-          { cond: "|2a-b-c| + (a+b-2c)^2 = 0", ratioStr: "1 : 1 : 1", sol: "絕對值與平方和皆非負，故兩項必同時為 $0$：<br>1) $2a - b - c = 0$<br>2) $a + b - 2c = 0$<br>兩式相加得 $3a - 3c = 0 \\implies a = c$。代回兩式得 $b = a$。<br>因此 $a:b:c = 1:1:1$。由正弦定理可知 $\\sin A : \\sin B : \\sin C = 1:1:1$。" }
+          { cond: "(a-2b+c)^2 + (3a+b-2c)^2 = 0", ratioStr: "3 : 5 : 7", sol: "得消去方程聯立：$a-2b+c=0$ 且 $3a+b-2c=0$，解得齊次比 $a:b:c = 3:5:7$。依比例得正弦比。" }
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('sine-app1-t2-text').innerHTML = `設 $\\Delta ABC$ 的三邊長分別為 $a, b, c$，且滿足代數限制式 $${p.cond}$，試求 $\\sin A : \\sin B : \\sin C$。`;
@@ -493,11 +564,10 @@
         safeRenderMath('sine-app1-t2-text'); safeRenderMath('sine-app1-t2-ans');
       },
       
-      // 11. 主題五 - 題型三：兩兩邊長和求正弦比 (修正閉合語法)
+      // 11. 主題五 - 題型三：邊長兩兩和
       sineApp1T3: function() {
         const pools = [
-          { ratio: "5 : 6 : 7", ansStr: "3 : 2 : 4", sol: "令 $a+b=5k$, $b+c=6k$, $c+a=7k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>依序扣除各別條件：<br>$c = (a+b+c) - (a+b) = 9k - 5k = 4k$<br>$a = (a+b+c) - (b+c) = 9k - 6k = 3k$<br>$b = (a+b+c) - (c+a) = 9k - 7k = 2k$<br>因此邊長比 $a:b:c = 3:2:4$。根據正弦定理，$\\sin A : \\sin B : \\sin C = 3:2:4$。" },
-          { ratio: "6 : 7 : 5", ansStr: "2 : 4 : 3", sol: "令 $a+b=6k$, $b+c=7k$, $c+a=5k$。<br>三式相加得 $2(a+b+c) = 18k \\implies a+b+c = 9k$。<br>可求得：$c = 9k - 6k = 3k$，$a = 9k - 7k = 2k$，$b = 9k - 5k = 4k$。<br>故邊長比 $a:b:c = 2:4:3$。依正弦定理，$\\sin A : \\sin B : \\sin C = 2:4:3$。" }
+          { ratio: "5 : 6 : 7", ansStr: "3 : 2 : 4", sol: "設三式和解得 $a+b+c=9k$，推知 $a=3k, b=2k, c=4k$。根據正弦定理比值等同邊長比。" }
         ];
         const p = pools[Math.floor(Math.random() * pools.length)];
         document.getElementById('sine-app1-t3-text').innerHTML = `若 $\\Delta ABC$ 的三邊長滿足 $(a+b) : (b+c) : (c+a) = ${p.ratio}$，試求 $\\sin A : \\sin B : \\sin C$ 的比值。`;
@@ -505,6 +575,47 @@
         document.getElementById('sine-app1-t3-ans').classList.add('hidden');
         safeRenderMath('sine-app1-t3-text'); safeRenderMath('sine-app1-t3-ans');
       },
+
+      // 12. 主題六 - 題型一：圓內接四邊形對角共圓
+      circleSineT1: function() {
+        const pools = [
+          { text: "圓內接四邊形 $ABCD$ 中，若 $\\angle A = 120^\\circ$、$\\angle B = 45^\\circ$，且對角線 $BD = 15$，求另一對角線 $AC$ 的長度。", ans: "5\\sqrt{6}", sol: "同圓外接半徑 $2R = \\frac{BD}{\\sin A} = \\frac{AC}{\\sin B}$。代入得 $\\frac{15}{\\sqrt{3}/2} = \\frac{AC}{\\sqrt{2}/2} \\implies AC = 5\\sqrt{6}$。" },
+          { text: "圓內接四邊形 $ABCD$ 中，若對角線 $AC = 8$，$\\angle BAD = 60^\\circ$，$\\angle ABC = 45^\\circ$，求另一對角線 $BD$ 的長度。", ans: "4\\sqrt{6}", sol: "由正弦定理：$\\frac{AC}{\\sin 45^\\circ} = \\frac{BD}{\\sin 60^\\circ} \\implies BD = 8 \\times \\frac{\\sqrt{3}}{\\sqrt{2}} = 4\\sqrt{6}$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('circle-t1-text').innerHTML = p.text;
+        document.getElementById('circle-t1-ans').innerHTML = `<div class="font-bold text-purple-600 mb-1">答案：對角線長 = $${p.ans}$</div><div class="text-xs text-gray-500">【修羅場幾何思維】<br>${p.sol}</div>`;
+        document.getElementById('circle-t1-ans').classList.add('hidden');
+        safeRenderMath('circle-t1-text'); safeRenderMath('circle-t1-ans');
+      },
+
+      // 13. 主題六 - 題型二：雙圓相交公共弦割線
+      circleSineT2: function() {
+        const pools = [
+          { angles: "30^\\circ", r1: 8, r2: 6, ans1: "8", ans2: "\\frac{2}{3}", ans3: "9", sol: "(1) 圓 $C_1$ 中 $AB = 2R_1 \\sin 30^\\circ = 8$。<br>(2) 公共弦 $AB$ 在圓 $C_2$ 中：$AB = 2R_2 \\sin\\angle AQB \\implies 8 = 12 \\sin\\angle AQB \\implies \\sin\\angle AQB = \\frac{2}{3}$。<br>(3) 連鎖推導邊長幾何得 $AQ = 9$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('circle-t2-text').innerHTML = `兩圓 $C_1$ 與 $C_2$ 交於 $A, B$ 兩點，一條通過 $B$ 點的直線分別交兩圓於 $P$ 點與 $Q$ 點。已知 $\\angle APB = ${p.angles}$，線段 $AP = 12$，圓 $C_1$ 的半徑為 $${p.r1}$，圓 $C_2$ 的半徑為 $${p.r2}$，試求：<br>(1) 公共弦 $AB$ 的長度？<br>(2) $\\sin\\angle AQB$ 的值？<br>(3) 線段 $AQ$ 的長度？`;
+        document.getElementById('circle-t2-ans').innerHTML = `<div class="font-bold text-purple-600 mb-1">答案：(1) $AB = ${p.ans1}$ &nbsp;|&nbsp; (2) $\\sin\\angle AQB = ${p.ans2}$ &nbsp;|&nbsp; (3) $AQ = ${p.ans3}$</div><div class="text-xs text-gray-500">【修羅場幾何思維】<br>${p.sol}</div>`;
+        document.getElementById('circle-t2-ans').classList.add('hidden');
+        safeRenderMath('circle-t2-text'); safeRenderMath('circle-t2-ans');
+      },
+
+      // 14. 主題六 - 題型三：公共弦求雙圓面積/周長比 (引進 30°、45° 伸縮比)
+      circleSineT3: function() {
+        const pools = [
+          { mode: "area", pA: "12\\pi", ans: "6\\pi", text: "已知圓 $C_1$ 的面積為 $12\\pi$，試求圓 $C_2$ 的面積為何？", sol: "利用共用公共弦 $AB$ 比值關係得出半徑比：$\\frac{R_1}{R_2} = \\frac{\\sin 45^\\circ}{\\sin 30^\\circ} = \\sqrt{2}$。面積比為半徑平方比 $( \\sqrt{2} )^2 = 2$。故 $12\\pi / 2 = 6\\pi$。" },
+          { mode: "perimeter", pA: "4\\sqrt{3}\\pi", ans: "2\\sqrt{6}\\pi", text: "已知圓 $C_1$ 的周長為 $4\\sqrt{3}\\pi$，試求圓 $C_2$ 的周長為何？", sol: "半徑比為 $\\sqrt{2}$，周長比等同一次方比。因此 $\\text{周長}_2 = \\frac{4\\sqrt{3}\\pi}{\\sqrt{2}} = 2\\sqrt{6}\\pi$。" }
+        ];
+        const p = pools[Math.floor(Math.random() * pools.length)];
+        document.getElementById('circle-t3-text').innerHTML = `兩圓 $C_1$ 與 $C_2$ 交於 $A, B$ 兩點，$P$ 點在圓 $C_1$ 上，$Q$ 點在圓 $C_2$ 上。已知 $\\angle APB = 30^\\circ$，$\\angle AQB = 45^\\circ$。${p.text}`;
+        document.getElementById('circle-t3-ans').innerHTML = `<div class="font-bold text-purple-600 mb-1">答案：$${p.ans}$</div><div class="text-xs text-gray-500">【修羅場幾何思維】<br>${p.sol}</div>`;
+        document.getElementById('circle-t3-ans').classList.add('hidden');
+        safeRenderMath('circle-t3-text'); safeRenderMath('circle-t3-ans');
+      },
+
+      /* 🚀 新增腳本從這裡開始 */
+      /* 🚀 新增腳本到這裡結束 */
 
       // 自動初始化全部題目數據
       initAll: function() {
@@ -515,6 +626,9 @@
         this.sineApp1T1();
         this.sineApp1T2();
         this.sineApp1T3();
+        this.circleSineT1();
+        this.circleSineT2();
+        this.circleSineT3();
       }
     };
 
